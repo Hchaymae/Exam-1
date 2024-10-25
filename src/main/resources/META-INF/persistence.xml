@@ -1,20 +1,18 @@
-
-
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
              version="2.2">
-<persistence-unit name="examplePU" transaction-type="JTA">
-    <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
-    <class>org.example.exam.entity.CD</class>
-    <class>org.example.exam.entity.DVD</class>
-    <properties>
-        <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
-        <property name="jakarta.persistence.jdbc.driver" value="org.h2.Driver"/>
-        <property name="jakarta.persistence.jdbc.url" value="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"/>
-        <property name="jakarta.persistence.jdbc.user" value="sa"/>
-        <property name="jakarta.persistence.jdbc.password" value="sa"/>
-    </properties>
-</persistence-unit>
+    <persistence-unit name="examplePU" transaction-type="JTA">
+        <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+        <class>org.example.exam.entity.CD</class>
+        <class>org.example.exam.entity.DVD</class>
+        <properties>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/gestion_cd_dvd"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+        </properties>
+    </persistence-unit>
 </persistence>
