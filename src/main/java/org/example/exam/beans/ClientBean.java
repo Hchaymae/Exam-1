@@ -1,52 +1,37 @@
-package org.example.exam.ejb;
-
-import jakarta.ejb.Stateless;
-import jakarta.persistence.*;
+package org.example.exam.beans;
+import jakarta.ejb.EJB;
+import jakarta.enterprise.context.RequestScoped;
+import jakarta.inject.Named;
+import org.example.exam.ejb.ClientService;
 import org.example.exam.entity.CD;
 
 import java.util.List;
 
-@Stateless
-public class CDService {
-    @PersistenceContext
-    private EntityManager em;
+@Named
+@RequestScoped
+public class ClientBean {
+    @EJB
+    private ClientService clientService;
 
-    public void addCD(CD cd) {
-        em.persist(cd);
-    }
-
-    public void updateCD(CD cd) {
-        em.merge(cd);
-    }
-
-    public void deleteCD(Long cdId) {
-        CD cd = em.find(CD.class, cdId);
-        if (cd != null) {
-            em.remove(cd);
-        }
-    }
+    private Long cdId;
 
     public List<CD> getAllCDs() {
-        return em.createQuery("SELECT c FROM CD c", CD.class).getResultList();
+        return clientService.getAllCDs();
     }
 
-    public void borrowCD(Long cdId) {
-        CD cd = em.find(CD.class, cdId);
-        if (cd != null && !cd.isBorrowed()) {
-            cd.setBorrowed(true);
-            em.merge(cd);
-        }
+    public void borrowCD() {
+        clientService.borrowCD(cdId);
     }
 
-    public List<CD> getBorrowedCDs() {
-        return em.createQuery("SELECT c FROM CD c WHERE c.borrowed = true", CD.class).getResultList();
+    public void returnCD() {
+        clientService.returnCD(cdId);
     }
 
-    public void returnCD(Long cdId) {
-        CD cd = em.find(CD.class, cdId);
-        if (cd != null && cd.isBorrowed()) {
-            cd.setBorrowed(false);
-            em.merge(cd);
-        }
+    public Long getCdId() {
+        return cdId;
+    }
+
+    public void setCdId(Long cdId) {
+        this.cdId = cdId;
     }
 }
