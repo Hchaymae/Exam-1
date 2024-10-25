@@ -5,6 +5,7 @@
              version="2.2">
     <persistence-unit name="examplePU" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/ExampleDS</jta-data-source>
+        <class>org.example.exam.entity.Client</class>
         <class>org.example.exam.entity.CD</class>
         <class>org.example.exam.entity.DVD</class>
         <properties>

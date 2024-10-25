@@ -19,7 +19,7 @@ public class CDBean {
 
     public void addCD() {
         cdService.addCD(cd);
-        cd = new CD(); // Reset the form
+        cd = new CD(); 
     }
 
     public List<CD> getAllCDs() {
