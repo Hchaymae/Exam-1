@@ -11,6 +11,10 @@ public class CD {
     private String artist;
     private boolean borrowed;
 
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
     // Getters and setters
     public Long getId() {
         return id;
@@ -42,5 +46,13 @@ public class CD {
 
     public void setBorrowed(boolean borrowed) {
         this.borrowed = borrowed;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }

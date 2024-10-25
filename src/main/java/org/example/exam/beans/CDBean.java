@@ -4,6 +4,7 @@ package org.example.exam.beans;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
+import org.example.exam.ejb.CDService;
 import org.example.exam.entity.CD;
 
 import java.util.List;

@@ -22,6 +22,11 @@
             <f:facet name="header">Artist</f:facet>
             #{cd.artist}
         </h:column>
+        <h:column>
+            <f:facet name="header">Actions</f:facet>
+            <h:commandButton value="Borrow" action="#{cdBean.borrowCD(cd.id)}" />
+            <h:commandButton value="Return" action="#{cdBean.returnCD(cd.id)}" />
+        </h:column>
     </h:dataTable>
 </h:body>
 </html>
