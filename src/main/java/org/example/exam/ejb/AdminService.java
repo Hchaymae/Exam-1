@@ -1,8 +1,9 @@
 package org.example.exam.ejb;
 
+
 import jakarta.ejb.Stateful;
 import jakarta.persistence.*;
-import org.example.exam.entity.CD;
+        import org.example.exam.entity.CD;
 
 import java.util.List;
 
