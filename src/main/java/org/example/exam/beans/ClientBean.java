@@ -1,4 +1,5 @@
 package org.example.exam.beans;
+
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Named;
@@ -14,13 +15,14 @@ public class ClientBean {
     private ClientService clientService;
 
     private Long cdId;
+    private Long clientId;
 
     public List<CD> getAllCDs() {
         return clientService.getAllCDs();
     }
 
     public void borrowCD() {
-        clientService.borrowCD(cdId);
+        clientService.borrowCD(cdId, clientId);
     }
 
     public void returnCD() {
@@ -33,5 +35,13 @@ public class ClientBean {
 
     public void setCdId(Long cdId) {
         this.cdId = cdId;
+    }
+
+    public Long getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(Long clientId) {
+        this.clientId = clientId;
     }
 }
