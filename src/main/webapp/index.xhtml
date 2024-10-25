@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <title>CD List</title>
+</h:head>
+<h:body>
+    <h1>CD List</h1>
+    <h:form>
+        <h:outputLabel for="title" value="Title: " />
+        <h:inputText id="title" value="#{cdBean.cd.title}" />
+        <h:outputLabel for="artist" value="Artist: " />
+        <h:inputText id="artist" value="#{cdBean.cd.artist}" />
+        <h:commandButton value="Add CD" action="#{cdBean.addCD}" />
+    </h:form>
+    <h:dataTable value="#{cdBean.allCDs}" var="cd">
+        <h:column>
+            <f:facet name="header">Title</f:facet>
+            #{cd.title}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Artist</f:facet>
+            #{cd.artist}
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>
